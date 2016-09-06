@@ -5,13 +5,25 @@
     <li><%= link_to list.name, list_path(list) %></li>
     <ul>
       <% list.tasks.each do |task| %>
-        <li><%= task.description %></li>
+        <li>
+          <%= task.description %>
+          <%= form_for [list, task] do |f| %>
+            <%= f.hidden_field(:done, :value => !task.done) %>
+            <%= f.submit 'toggle done' %>
+          <% end %>
+        </li>
       <% end %>
     </ul>
   <% end %>
 </ul>
 
 
+<h1>Done Tasks</h1>
+<ul>
+  <% @tasks.done().each do |task| %>
+    <li><%= task.description %></li>
+  <% end %>
+</ul>
 
 
 

@@ -4,6 +4,12 @@ class TasksController < ApplicationController
     @task = @list.tasks.new
   end
 
+  def show
+    @list = List.all
+    @tasks = Task.all.complete
+    render :show
+  end
+
   def create
     @list = List.find(params[:list_id])
     @task = @list.tasks.new(task_params)
