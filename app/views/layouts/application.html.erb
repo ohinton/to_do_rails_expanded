@@ -9,10 +9,12 @@
   </head>
 
   <body>
-    <%= image_tag "banner.jpg" %>
+    <%= image_tag "banner.jpg", :class => "img-responsive", :id => "header" %>
     <%= flash[:alert] %>
     <%= flash[:notice] %>
 
+<div class="container">
     <%= yield %>
+</div>
   </body>
 </html>

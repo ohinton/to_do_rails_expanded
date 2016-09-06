@@ -8,6 +8,8 @@
   <% end %>
 </ul>
 
+<%= link_to "Add New List", new_list_path, :class => "btn btn-info" %>
+
 
 <h1>To Do Tasks</h1>
 <ul>
@@ -17,7 +19,7 @@
       <%= task.description %>
       <%= form_for [list, task] do |f| %>
       <%= f.hidden_field(:done, :value => true) %>
-      <%= f.submit 'mark done' %>
+      <%= f.submit 'mark done', :class => "btn btn-success" %>
   <% end %>
     </li>
   <% end %>
@@ -33,13 +35,9 @@
       <%= task.description %>
       <%= form_for [list, task] do |f| %>
       <%= f.hidden_field(:done, :value => false) %>
-      <%= f.submit 'mark not done' %>
+      <%= f.submit 'mark not done', :class => "btn btn-warning" %>
   <% end %>
     </li>
   <% end %>
   <% end %>
 </ul>
-
-
-
-<%= link_to "New List", new_list_path %>
