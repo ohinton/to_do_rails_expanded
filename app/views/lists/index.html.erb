@@ -3,7 +3,16 @@
 <ul>
   <% @lists.each do |list| %>
     <li><%= link_to list.name, list_path(list) %></li>
+    <ul>
+      <% list.tasks.each do |task| %>
+        <li><%= task.description %></li>
+      <% end %>
+    </ul>
   <% end %>
 </ul>
+
+
+
+
 
 <%= link_to "New List", new_list_path %>

@@ -10,7 +10,7 @@ class ListsController < ApplicationController
   end
 
   def new
-    @list = List.find(params[:id])
+    @list = List.new
     render :new
   end
 
