@@ -6,8 +6,7 @@ class TasksController < ApplicationController
 
   def show
     @list = List.all
-    @tasks = Task.all.complete
-    render :show
+    @tasks = Task.all
   end
 
   def create
@@ -23,18 +22,17 @@ class TasksController < ApplicationController
   def edit
     @list = List.find(params[:list_id])
     @task = @list.tasks.find(params[:id])
-    render :edit
   end
 
   def update
     @list = List.find(params[:list_id])
     @task = @list.tasks.find(params[:id])
-    if @task.update(task_params)
-      redirect_to list_path(@task.list)
-    else
-      render :edit
+      if @task.update(task_params)
+        redirect_to lists_path
+      else
+        render :edit
+      end
     end
-  end
 
   def destroy
     @list = List.find(params[:list_id])

@@ -1,27 +1,42 @@
+<% content_for(:title, "Your To Do App") %>
+
 <h1>Lists</h1>
 
 <ul>
   <% @lists.each do |list| %>
     <li><%= link_to list.name, list_path(list) %></li>
-    <ul>
-      <% list.tasks.each do |task| %>
-        <li>
-          <%= task.description %>
-          <%= form_for [list, task] do |f| %>
-            <%= f.hidden_field(:done, :value => !task.done) %>
-            <%= f.submit 'toggle done' %>
-          <% end %>
-        </li>
-      <% end %>
-    </ul>
+  <% end %>
+</ul>
+
+
+<h1>To Do Tasks</h1>
+<ul>
+  <% @lists.each do |list| %>
+  <% list.tasks.not_done().each do |task| %>
+    <li>
+      <%= task.description %>
+      <%= form_for [list, task] do |f| %>
+      <%= f.hidden_field(:done, :value => true) %>
+      <%= f.submit 'mark done' %>
+  <% end %>
+    </li>
+  <% end %>
   <% end %>
 </ul>
 
 
 <h1>Done Tasks</h1>
 <ul>
-  <% @tasks.done().each do |task| %>
-    <li><%= task.description %></li>
+  <% @lists.each do |list| %>
+  <% list.tasks.done().each do |task| %>
+    <li>
+      <%= task.description %>
+      <%= form_for [list, task] do |f| %>
+      <%= f.hidden_field(:done, :value => false) %>
+      <%= f.submit 'mark not done' %>
+  <% end %>
+    </li>
+  <% end %>
   <% end %>
 </ul>
 

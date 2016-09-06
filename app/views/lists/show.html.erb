@@ -1,3 +1,5 @@
+<% content_for(:title, "List | To Do") %>
+
 <h1><%= @list.name %></h1>
 
 <% if @list.tasks.any? %>
@@ -7,8 +9,8 @@
     <% @list.tasks.each do |task| %>
     <li>
       <%= task.description %>
-      <%= link_to "Edit", edit_list_task_path(@list, task) %>
-      <%= link_to "Delete", list_task_path(@list, task),
+      <%= link_to "Edit Task", edit_list_task_path(@list, task) %>
+      <%= link_to "Delete Task", list_task_path(@list, task),
       :data => {:confirm => "You sure?",
         :method => "delete"} %>
     </li>
@@ -19,8 +21,8 @@
 <% end %>
 
 <p><%= link_to 'Add New Task', new_list_task_path(@list) %></p>
-<p><%= link_to "Edit", edit_list_path(@list) %></p>
-<p><%= link_to "Delete", list_path(@list),
+<p><%= link_to "Edit List", edit_list_path(@list) %></p>
+<p><%= link_to "Delete List", list_path(@list),
                   :data => {:confirm => "You sure?",
                           :method => "delete"} %></p>
 
