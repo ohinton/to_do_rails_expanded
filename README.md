@@ -1,24 +1,12 @@
-# README
+# To Do App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#### By Olivia Hinton & Brett New | Sept. 6, 2016
 
-Things you may want to cover:
+## Description
+A to-do app with RESTfuls routes and CRUD processes for each resource (list and task).
 
-* Ruby version
+### License
 
-* System dependencies
+*This software is licensed under the MIT license.*
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Copyright (c) 2016 **Olivia Hinton**
